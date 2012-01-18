@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+/bin/
+/develop-eggs/
+/eggs/
+/parts/
+/working/
+.installed.cfg
+error.log
+/games/local_settings.py

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Games List</h1>
+
+<div id="games">
+{% for game in games %}
+    <div class="game">
+        <div class="title"><a href="{% url game_details game.id %}">{{ game }}</a></div>
+        <div class="publisher">Created by: {{ game.client.user.get_full_name }}</div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

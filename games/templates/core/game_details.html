@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ game }}</h1>
+
+<a href="{% url home %}">&laquo; Back to Games</a>
+
+{% if game.description %}
+    <p>{{ game.description }}</p>
+{% endif %}
+
+<h2>Recent Scores:</h2>
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Date</th>
+        <th>Score</th>
+    </tr>
+    {% for score in recent_scores %}
+        <tr>
+            <td>{{ score.username }}</td>
+            <td>{{ score.play_date|date }}</td>
+            <td>{{ score.score }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="3"><em>No scores yet</em></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
